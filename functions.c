@@ -54,29 +54,29 @@ int print_string(va_list types, char buffer[], int flags,
 		str = "  ";
 	}
 
-	while (str[len] != '\0')
-	len++;
+	while (str[length] != '\0')
+	length++;
 
-	if (precision >= 0 && precision < len)
-	len = precision;
-	if (width > len)
+	if (precision >= 0 && precision < length)
+	length = precision;
+	if (width > length)
 	{
 		if (flags & F_MINUS)
 		{
 			write(1, &str[0], len);
-			for (i = width - len; i > 0; i--)
+			for (i = width - length; i > 0; i--)
 			write(1, " ", 1);
 			return (width);
 		}
 		else
 		{
-		for (i = width - len; i > 0; i--)
+		for (i = width - length; i > 0; i--)
 		write(1, " ", 1);
-		write(1, &str[0], len);
+		write(1, &str[0], length);
 		return (width);
 		}
 	}
-	return (write(1, str, len));
+	return (write(1, str, length));
 	}
 
 /**PRINT PERCENTAGE SIGN**/
