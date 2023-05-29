@@ -2,7 +2,7 @@
 
 		/****PRINT POINTER****/
 /**
- * print_pointer - Prints the value of a pointer variable
+ * print_pointer - Prints arguments
  * @types: list 'a' of arguments
  * @buffer: buffer array
  * @flags: calc active flags
@@ -17,7 +17,7 @@ int print_pointer(va_list types, char buffer[], int flags,
 	int width, int precision, int size)
 {
 	char extra_c = 0, padd = ' ';
-	int i = BUFF_SIZE - 2, len = 2, padd_start = 1;
+	int ind = BUFF_SIZE - 2, len = 2, padd_start = 1;
 	/* len = 2, for '0x' */
 	unsigned long _address;
 	char map_to[] = "0123456789abcdef";
@@ -26,29 +26,29 @@ int print_pointer(va_list types, char buffer[], int flags,
 	UNUSED(width);
 	UNUSED(size);
 
-	if (_addrs == NULL)
+	if (addrs == NULL)
 		return (write(1, "(nil)", 5));
 
 	buffer[BUFF_SIZE - 1] = '\0';
 	UNUSED(precision);
 
-	_address = (unsigned long)addrs;
+	n_address = (unsigned long)addrs;
 
 	while (_address > 0)
 	{
-	buffer[i--] = map_to[_address % 16];
+	buffer[i--] = map_to[n_address % 16];
 	}
-	_address /= 16;
+	n_address /= 16;
 	len++;
 	}
 
 	if ((flags & F_ZERO) && !(flags & F_MINUS))
-	padd = '0';
+		padd = '0';
 	if (flags & F_PLUS)
 	extra_c = '+', len++;
 	else if (flags & F_SPACE)
 	extra_c = ' ', len++;
-	i++;
+	ind++;
 
 /*return (write(1, &buffer[i], BUFF_SIZE - i - 1));*/
 
