@@ -11,7 +11,7 @@ void print_buffer(char buffer[], int *buff_i);
 
 int _printf(const char *format, ...)
 {
-	va_list ap;
+	va_list list;
 	int i, print_ = 0, print_chars = 0;
 	int flags, width, precision, size, buff_i = 0;
 	char buffer[BUFF_SIZE];
@@ -19,7 +19,7 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 	return (-1);
 
-	va_start(ap, format);
+	va_start(list, format);
 
 /*index, i starts from 0, conversion specifiers and the index of*/
 /*the conversion specifier which is not the terminating byte if true*/
@@ -40,11 +40,12 @@ int _printf(const char *format, ...)
 	{
 	print_buffer(buffer, &buff_i);
 	flags = get_flags(format, &i);
-	width = get_width(format, &i, ap);
-	precision = get_precision(format, &i, ap);
+	width = get_width(format, &i, list);
+	precision = get_precision(format, &i, list);
 	size = get_size(format, &i);
 	++i;
-	print_ = handle_print(format, &i, ap, buffer, flags, width, precision, size);
+	print_ = handle_print(format, &i, list, buffer,
+		flags, width, precision, size);
 
 	if (print_ == -1)
 	return (-1);
@@ -55,7 +56,7 @@ int _printf(const char *format, ...)
 
 	print_buffer(buffer, &buff_i);
 
-	va_end(ap);
+	va_end(list);
 	return (print_chars);
 	}
 
