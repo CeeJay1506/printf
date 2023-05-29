@@ -51,7 +51,7 @@ int print_pointer(va_list types, char buffer[], int flags,
 
 /*return (write(1, &buffer[i], BUFF_SIZE - i - 1));*/
 
-	return (write_pointer(buffer, ind, length,
+	return (write_pointer(buffer, ind, len,
 		width, flags, padd, extra_c, padd_start));
 }
 
