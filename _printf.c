@@ -1,6 +1,6 @@
 #include "main.h"
 
-void print_buffer(char buffer[], int *buff_i);
+void print_buffer(char buffer[], int *buff_ind);
 
 /**
  * _printf - function that produces output according to a format.
