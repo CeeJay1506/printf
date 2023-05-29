@@ -12,7 +12,7 @@ void print_buffer(char buffer[], int *buff_i);
 int _printf(const char *format, ...)
 {
 	va_list list;
-	int i, print_ = 0, printed_chars = 0;
+	int i, printed = 0, printed_chars = 0;
 	int flags, width, precision, size, buff_ind = 0;
 	char buffer[BUFF_SIZE];
 
@@ -44,13 +44,13 @@ int _printf(const char *format, ...)
 	precision = get_precision(format, &i, list);
 	size = get_size(format, &i);
 	++i;
-	print_ = handle_print(format, &i, list, buffer,
+	printed = handle_print(format, &i, list, buffer,
 		flags, width, precision, size);
 
-	if (print_ == -1)
+	if (printed == -1)
 	return (-1);
 
-	printed_chars += print_;
+	printed_chars += printed;
 	}
 	}
 
@@ -63,7 +63,7 @@ int _printf(const char *format, ...)
 /**
  * print_buffer - prints the content of the buffer if it exits
  * @buffer: array of characters
- * @buff_i: index length
+ * @buff_ind: index length
  */
 
 void print_buffer(char buffer[], int *buff_ind)
