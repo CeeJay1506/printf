@@ -6,14 +6,14 @@ void print_buffer(char buffer[], int *buff_ind);
  * _printf - function that produces output according to a format.
  * @format: character string composed of zero or more directives.
  *
- * Return: the number of characters printed excluding '\0'.
+ * Return: characters printed excluding '\0'.
  */
 
 int _printf(const char *format, ...)
 {
-	va_list list;
 	int i, printed = 0, printed_chars = 0;
 	int flags, width, precision, size, buff_ind = 0;
+	va_list list;
 	char buffer[BUFF_SIZE];
 
 	if (format == NULL)
@@ -63,7 +63,7 @@ int _printf(const char *format, ...)
 /**
  * print_buffer - prints the content of the buffer if it exits
  * @buffer: array of characters
- * @buff_ind: index length
+ * @buff_ind: index represents length
  */
 
 void print_buffer(char buffer[], int *buff_ind)
