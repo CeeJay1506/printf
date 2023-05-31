@@ -176,7 +176,8 @@ int print_binary(va_list types, char buffer[], int flags,
 	UNUSED(size);
 
 	x = va_arg(types, unsigned int);
-	y = 2147483648; /*(2 ^ 31)*/
+	y = 2147483648; 
+	/*(2 ^ 31)*, 2 raised to the power 31*/
 
 	m[0] = x / y;
 	for (i = 1; i < 32; i++)
