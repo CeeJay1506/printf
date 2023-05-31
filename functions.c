@@ -59,7 +59,7 @@ int print_string(va_list types, char buffer[], int flags,
 
 	if (precision >= 0 && precision < length)
 	length = precision;
-	if (length >= 13);
+	
 	if (width > length)
 	{
 		if (flags & F_MINUS)
