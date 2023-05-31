@@ -50,7 +50,7 @@ int print_string(va_list types, char buffer[], int flags,
 	if (str == NULL)
 	{
 		str = "(null)";
-		if (precision >= 6)
+		if (precision >= 7)
 		str = "  ";
 	}
 
