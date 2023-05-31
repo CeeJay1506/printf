@@ -43,8 +43,6 @@ int print_string(va_list types, char buffer[], int flags,
 
 	UNUSED(buffer);
 	UNUSED(flags);
-	UNUSED(width);
-	UNUSED(precision);
 	UNUSED(size);
 
 	if (str == NULL)
